@@ -10,9 +10,10 @@ function App() {
   const weatherPanelComponent =
     Boolean(city) && !error ? <WeatherPanel /> : null;
   const errorPanelComponent = error ? <ErrorPanel /> : null;
+  const FormComponent = !Boolean(city) ? <Form /> : null;
   return (
     <div className="app">
-      <Form />
+      {FormComponent}
       {weatherPanelComponent}
       {errorPanelComponent}
     </div>
