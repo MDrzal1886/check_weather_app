@@ -20,8 +20,7 @@ const AppProvider = ({ children }) => {
     timezone: 0,
     windSpeed: 0,
   });
-
-  const getCityName = (city) => setCity(city);
+  const [dayOrNightStyles, setDayOrNightStyles] = useState(true);
 
   useEffect(() => {
     const APIurl = `http://api.openweathermap.org/data/2.5/weather?q=${city},&units=metric&APPID=${KeyAPPID}&lang=pl`;
@@ -80,9 +79,11 @@ const AppProvider = ({ children }) => {
         city,
         error,
         errorCode,
-        getCityName,
         handleCloseClick,
+        setCity,
         weather,
+        dayOrNightStyles,
+        setDayOrNightStyles,
       }}
     >
       {children}
