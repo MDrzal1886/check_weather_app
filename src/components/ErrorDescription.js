@@ -1,10 +1,10 @@
+import "../sass/errorDescription.scss";
+
 const ErrorDescription = ({ message, code }) => {
   return (
-    <div>
-      <p>
-        <span>{code}</span>
-        {message}
-      </p>
+    <div className="errorDescriptionContainer">
+      <span>{code}</span>
+      <p> {message}</p>
     </div>
   );
 };

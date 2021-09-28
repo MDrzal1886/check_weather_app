@@ -2,6 +2,8 @@ import { useContext } from "react";
 
 import { AppContext } from "../AppContext";
 
+import "../sass/weatherPanel.scss";
+
 import cloudsDay from "../video/cloudsDay.mp4";
 import cloudsNight from "../video/cloudsNight.mp4";
 import clearSky from "../video/clearSky.mp4";
@@ -15,7 +17,8 @@ import snowNight from "../video/snowNight.mp4";
 import thunderstorm from "../video/thunderstorm.mp4";
 
 const WeatherPanel = () => {
-  const { handleCloseClick, city, weather } = useContext(AppContext);
+  const { dayOrNightStyles, handleCloseClick, city, weather } =
+    useContext(AppContext);
 
   const {
     code,
@@ -91,41 +94,90 @@ const WeatherPanel = () => {
   const timeSunRise = getTimeToShow((sunRise + timezone) * 1000);
   const timeSunSet = getTimeToShow((sunSet + timezone) * 1000);
 
+  const weatherContainerDayOrNightClass = dayOrNightStyles
+    ? "weatherPanelContainer"
+    : "weatherPanelContainer weatherPanelContainer--night";
+
+  const weatherPanelStrongDayOrNightClass = dayOrNightStyles
+    ? "weatherPanelContainer__panel__strong"
+    : "weatherPanelContainer__panel__strong weatherPanelContainer__panel__strong--night";
+
+  const weatherPanelElementDayOrNightClass = dayOrNightStyles
+    ? "otherParametersContainer__element"
+    : "otherParametersContainer__element otherParametersContainer__element--night";
+
   return (
-    <div>
-      <video autoPlay loop muted src={getVideo()} type="video/mp4"></video>
-      <h1>{city.toUpperCase()}</h1>
-      <p>{timeToShow}</p>
-      <p>{description}</p>
-      <strong>{temperature.toFixed()}&deg;C</strong>
-      <div>
-        <div>
-          <p>
-            Wschód słońca<span>{timeSunRise}</span>
-          </p>
-          <p>
-            Zachód słońca<span>{timeSunSet}</span>
-          </p>
+    <div className={weatherContainerDayOrNightClass}>
+      <video
+        autoPlay
+        loop
+        muted
+        src={getVideo()}
+        type="video/mp4"
+        className="weatherPanelContainer__video"
+      ></video>
+      <div className="weatherPanelContainer__panel">
+        <h1>{city.toUpperCase()}</h1>
+        <p className="weatherPanelContainer__panel__timeAndDescription">
+          {timeToShow}
+        </p>
+        <p className="weatherPanelContainer__panel__timeAndDescription">
+          {description}
+        </p>
+        <strong className={weatherPanelStrongDayOrNightClass}>
+          {temperature.toFixed()}&deg;C
+        </strong>
+        <div className="otherParametersContainer">
+          <div className={weatherPanelElementDayOrNightClass}>
+            <p className="otherParametersContainer__element__description">
+              Wschód słońca
+              <span className="otherParametersContainer__element__description__value">
+                {timeSunRise}
+              </span>
+            </p>
+            <p className="otherParametersContainer__element__description">
+              Zachód słońca
+              <span className="otherParametersContainer__element__description__value">
+                {timeSunSet}
+              </span>
+            </p>
+          </div>
+          <div className={weatherPanelElementDayOrNightClass}>
+            <p className="otherParametersContainer__element__description">
+              Prędkość wiatru
+              <span className="otherParametersContainer__element__description__value">
+                {windSpeed}km/h
+              </span>
+            </p>
+            <p className="otherParametersContainer__element__description">
+              Odczuwalna
+              <span className="otherParametersContainer__element__description__value">
+                {temperatureFeels.toFixed()}&deg;C
+              </span>
+            </p>
+          </div>
+          <div className="otherParametersContainer__element">
+            <p className="otherParametersContainer__element__description">
+              Wilgotność
+              <span className="otherParametersContainer__element__description__value">
+                {humidity}%
+              </span>
+            </p>
+            <p className="otherParametersContainer__element__description">
+              Ciśnienie
+              <span className="otherParametersContainer__element__description__value">
+                {pressure}hPa
+              </span>
+            </p>
+          </div>
         </div>
-        <div>
-          <p>
-            Prędkość wiatru<span>{windSpeed}km/h</span>
-          </p>
-          <p>
-            Odczuwalna temperatura
-            <span>{temperatureFeels.toFixed()}&deg;C</span>
-          </p>
-        </div>
-        <div>
-          <p>
-            Wilgotność<span>{humidity}%</span>
-          </p>
-          <p>
-            Ciśnienie<span>{pressure}hPa</span>
-          </p>
-        </div>
+        <button
+          onClick={handleCloseClick}
+          className="weatherPanelContainer__panel__button"
+        >
+          X
+        </button>
       </div>
-      <button onClick={handleCloseClick}>X</button>
     </div>
   );
 };

@@ -3,10 +3,13 @@ import { AppContext } from "../AppContext";
 
 import ErrorDescription from "./ErrorDescription";
 
+import "../sass/errorPanel.scss";
+
 import errorImage from "../img/error.svg";
 
 const ErrorPanel = () => {
-  const { errorCode, handleCloseClick } = useContext(AppContext);
+  const { errorCode, dayOrNightStyles, handleCloseClick } =
+    useContext(AppContext);
 
   const getErrorDescription = () => {
     switch (errorCode) {
@@ -17,21 +20,21 @@ const ErrorPanel = () => {
       case 404:
         return (
           <ErrorDescription
-            message="Coś źle wpisałeś! Nie ma takiego miasta :("
+            message="Coś źle wpisane! Nie znajduję takiego miasta :("
             code={errorCode}
           />
         );
       case 429:
         return (
           <ErrorDescription
-            message="Limit wyszukań przekroczony! Spróbuj ponownie później"
+            message="Limit przekroczony! Spróbuj ponownie później"
             code={errorCode}
           />
         );
       default:
         return (
           <ErrorDescription
-            message="Coś nie tak u nas :( Przepraszamy :("
+            message="Coś nie tak u mnie :( Przepraszam :("
             code={errorCode}
           />
         );
@@ -40,11 +43,20 @@ const ErrorPanel = () => {
 
   const errorDescription = getErrorDescription();
 
+  const errorPanelDayOrNightClass = dayOrNightStyles
+    ? "errorPanelContainer"
+    : "errorPanelContainer errorPanelContainer--night";
+
   return (
-    <div>
+    <div className={errorPanelDayOrNightClass}>
       <img src={errorImage} alt="Błąd" />
       {errorDescription}
-      <button onClick={handleCloseClick}>X</button>
+      <button
+        onClick={handleCloseClick}
+        className="errorPanelContainer__button"
+      >
+        X
+      </button>
     </div>
   );
 };
