@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const AppContext = createContext();
 
-const KeyAPPID = "92ed051ea808c3123500bd8d06fcb003";
+const KeyAPPID = process.env.REACT_APP_API_KEY;
 
 const AppProvider = ({ children }) => {
   const [city, setCity] = useState("");
