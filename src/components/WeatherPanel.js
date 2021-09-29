@@ -112,6 +112,7 @@ const WeatherPanel = () => {
         autoPlay
         loop
         muted
+        playsInline
         src={getVideo()}
         type="video/mp4"
         className="weatherPanelContainer__video"
