@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/check_weather_app/static/css/main.ee94b719.chunk.css",
+    "main.js": "/check_weather_app/static/js/main.0c68feb1.chunk.js",
+    "main.js.map": "/check_weather_app/static/js/main.0c68feb1.chunk.js.map",
+    "runtime-main.js": "/check_weather_app/static/js/runtime-main.a44c6ca9.js",
+    "runtime-main.js.map": "/check_weather_app/static/js/runtime-main.a44c6ca9.js.map",
+    "static/js/2.59ec7f9f.chunk.js": "/check_weather_app/static/js/2.59ec7f9f.chunk.js",
+    "static/js/2.59ec7f9f.chunk.js.map": "/check_weather_app/static/js/2.59ec7f9f.chunk.js.map",
+    "static/js/3.9e9bb0a0.chunk.js": "/check_weather_app/static/js/3.9e9bb0a0.chunk.js",
+    "static/js/3.9e9bb0a0.chunk.js.map": "/check_weather_app/static/js/3.9e9bb0a0.chunk.js.map",
+    "index.html": "/check_weather_app/index.html",
+    "static/css/main.ee94b719.chunk.css.map": "/check_weather_app/static/css/main.ee94b719.chunk.css.map",
+    "static/js/2.59ec7f9f.chunk.js.LICENSE.txt": "/check_weather_app/static/js/2.59ec7f9f.chunk.js.LICENSE.txt",
+    "static/media/app.scss": "/check_weather_app/static/media/backgroundDay.3c23d1b0.jpg",
+    "static/media/backgroundNight.1c335e68.jpg": "/check_weather_app/static/media/backgroundNight.1c335e68.jpg",
+    "static/media/clearSky.03798eab.mp4": "/check_weather_app/static/media/clearSky.03798eab.mp4",
+    "static/media/clearSkyNight.f3fa4f0a.mp4": "/check_weather_app/static/media/clearSkyNight.f3fa4f0a.mp4",
+    "static/media/cloudsDay.bff703eb.mp4": "/check_weather_app/static/media/cloudsDay.bff703eb.mp4",
+    "static/media/cloudsNight.d05fede6.mp4": "/check_weather_app/static/media/cloudsNight.d05fede6.mp4",
+    "static/media/error.52091a3e.svg": "/check_weather_app/static/media/error.52091a3e.svg",
+    "static/media/mist.467e107b.mp4": "/check_weather_app/static/media/mist.467e107b.mp4",
+    "static/media/mistNight.4d03c8e6.mp4": "/check_weather_app/static/media/mistNight.4d03c8e6.mp4",
+    "static/media/rain.ba986cdc.mp4": "/check_weather_app/static/media/rain.ba986cdc.mp4",
+    "static/media/rainNight.4b6c02a3.mp4": "/check_weather_app/static/media/rainNight.4b6c02a3.mp4",
+    "static/media/snow.5685d1ba.mp4": "/check_weather_app/static/media/snow.5685d1ba.mp4",
+    "static/media/snowNight.046bda54.mp4": "/check_weather_app/static/media/snowNight.046bda54.mp4",
+    "static/media/thunderstorm.d894cde0.mp4": "/check_weather_app/static/media/thunderstorm.d894cde0.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a44c6ca9.js",
+    "static/js/2.59ec7f9f.chunk.js",
+    "static/css/main.ee94b719.chunk.css",
+    "static/js/main.0c68feb1.chunk.js"
+  ]
+}
