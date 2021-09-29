@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useContext, useEffect } from "react";
 import { AppContext } from "./AppContext";
 import ErrorPanel from "./components/ErrorPanel";
 

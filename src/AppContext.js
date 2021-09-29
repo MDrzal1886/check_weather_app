@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
   const [dayOrNightStyles, setDayOrNightStyles] = useState(true);
 
   useEffect(() => {
-    const APIurl = `http://api.openweathermap.org/data/2.5/weather?q=${city},&units=metric&APPID=${KeyAPPID}&lang=pl`;
+    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${city},&units=metric&APPID=${KeyAPPID}&lang=pl`;
     if (city.length > 0) {
       fetch(APIurl)
         .then((response) => {
