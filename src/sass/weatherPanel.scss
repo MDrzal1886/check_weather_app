@@ -29,7 +29,10 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 54%;
+      width: 50%;
+    }
+    @media (min-width: 800px) and (max-height: 450px) {
+      width: 40%;
     }
     @include media(xlarge) {
       width: 45%;
@@ -46,7 +49,7 @@
       padding: 3% 4% 0 0;
     }
     h1 {
-      padding: 3% 0 0;
+      padding: 1% 0 0;
       @media (orientation: landscape) {
         font-size: 20px;
       }
@@ -69,7 +72,7 @@
     &__timeAndDescription {
       font-size: 16px;
       @media (orientation: landscape) {
-        max-width: 40%;
+        max-width: 45%;
         text-align: right;
       }
       @include media(small) {
@@ -93,21 +96,26 @@
     }
     &__strong {
       border-top: 1px solid black;
-      font-size: 80px;
+      font-size: 70px;
+      width: 90%;
+      text-align: center;
+      @media (orientation: landscape) {
+        width: 45%;
+      }
       @include media(small) {
-        font-size: 100px;
+        font-size: 90px;
       }
       @include media(medium) {
-        font-size: 140px;
+        font-size: 110px;
       }
       @include media(large) {
-        font-size: 180px;
+        font-size: 140px;
       }
       @include media(xlarge) {
-        font-size: 220px;
+        font-size: 170px;
       }
       @include media(xxlarge) {
-        font-size: 260px;
+        font-size: 200px;
       }
       &--night {
         border-top: 1px solid white;
@@ -125,7 +133,7 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 0 0 1% 2%;
+        padding: 0 0 0.5% 2%;
         font-size: 10px;
       }
       @include media(small) {
@@ -160,37 +168,6 @@
       }
       &__element:last-of-type {
         border: none;
-      }
-    }
-
-    &__button {
-      cursor: pointer;
-      transition: 0.2s ease;
-      background-color: rgba(255, 0, 0, 0.6);
-      font-weight: bold;
-      color: white;
-      border: none;
-      outline: none;
-      width: 9vw;
-      height: 9vw;
-      position: absolute;
-      top: 2%;
-      left: 4%;
-      border-radius: 50%;
-      @media (orientation: landscape) {
-        width: 5vw;
-        height: 5vw;
-        top: 4%;
-        left: 3%;
-        font-size: 10px;
-      }
-      @include media(medium) {
-        font-size: 20px;
-      }
-      @include media(xlarge) {
-        &:hover {
-          transform: scale(1.05);
-        }
       }
     }
   }
