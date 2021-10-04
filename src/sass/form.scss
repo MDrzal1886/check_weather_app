@@ -6,6 +6,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 80vw;
+  min-height: 200px;
   height: 50vh;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
@@ -33,13 +34,13 @@
     &__hint {
       align-self: flex-start;
       position: absolute;
-      top: 7%;
+      top: 10%;
       left: 50%;
       width: 90%;
       transform: translateX(-50%);
       font-size: 10px;
       @media (orientation: landscape) {
-        top: 13%;
+        top: 7%;
       }
       @include media(small) {
         font-size: 12px;
