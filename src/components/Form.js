@@ -6,6 +6,7 @@ import "../sass/form.scss";
 
 const Form = () => {
   const [inputValue, setInputValue] = useState("");
+  const [showInputHint, setShowInputHint] = useState(false);
   const { setCity, dayOrNightStyles } = useContext(AppContext);
 
   const handleInputValue = (event) =>
@@ -16,7 +17,19 @@ const Form = () => {
     const city = inputValue;
     setCity(city);
     setInputValue("");
+    setShowInputHint(false);
   };
+
+  const handleOnFocus = () => {
+    setShowInputHint(true);
+  };
+
+  const hint =
+    "*Więcej miejsc o tej nazwie? Wpisz po przecinku symbol państwa (np. DUBLIN,IE)";
+
+  const hintElement = showInputHint ? (
+    <p className="formContainer__form__hint">{hint}</p>
+  ) : null;
 
   const inputDayOrNightClass = dayOrNightStyles
     ? "formContainer__form__input"
@@ -37,10 +50,12 @@ const Form = () => {
   return (
     <div className={formContainerDayOrNightClass}>
       <form onSubmit={handleOnSubmit} className={formDayOrNightClass}>
+        {hintElement}
         <input
           type="text"
           value={inputValue}
           onChange={handleInputValue}
+          onFocus={handleOnFocus}
           placeholder="Wpisz miejsce..."
           className={inputDayOrNightClass}
         />
