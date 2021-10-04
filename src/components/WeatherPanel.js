@@ -2,6 +2,8 @@ import { useContext } from "react";
 
 import { AppContext } from "../AppContext";
 
+import OtherParameters from "./OtherParameters";
+
 import "../sass/weatherPanel.scss";
 
 import cloudsDay from "../video/cloudsDay.mp4";
@@ -20,18 +22,7 @@ const WeatherPanel = () => {
   const { dayOrNightStyles, handleCloseClick, city, weather } =
     useContext(AppContext);
 
-  const {
-    code,
-    description,
-    humidity,
-    pressure,
-    sunRise,
-    sunSet,
-    temperature,
-    temperatureFeels,
-    timezone,
-    windSpeed,
-  } = weather;
+  const { code, description, temperature, timezone } = weather;
 
   const getVideo = () => {
     if (code) {
@@ -78,6 +69,8 @@ const WeatherPanel = () => {
     }
   };
 
+  const videoSrc = getVideo();
+
   const date = new Date().getTime() + timezone * 1000;
 
   const getTimeToShow = (date) => {
@@ -91,9 +84,6 @@ const WeatherPanel = () => {
 
   const timeToShow = getTimeToShow(date);
 
-  const timeSunRise = getTimeToShow((sunRise + timezone) * 1000);
-  const timeSunSet = getTimeToShow((sunSet + timezone) * 1000);
-
   const weatherContainerDayOrNightClass = dayOrNightStyles
     ? "weatherPanelContainer"
     : "weatherPanelContainer weatherPanelContainer--night";
@@ -102,10 +92,6 @@ const WeatherPanel = () => {
     ? "weatherPanelContainer__panel__strong"
     : "weatherPanelContainer__panel__strong weatherPanelContainer__panel__strong--night";
 
-  const weatherPanelElementDayOrNightClass = dayOrNightStyles
-    ? "otherParametersContainer__element"
-    : "otherParametersContainer__element otherParametersContainer__element--night";
-
   return (
     <div className={weatherContainerDayOrNightClass}>
       <video
@@ -113,7 +99,7 @@ const WeatherPanel = () => {
         loop
         muted
         playsInline
-        src={getVideo()}
+        src={videoSrc}
         type="video/mp4"
         className="weatherPanelContainer__video"
       ></video>
@@ -128,54 +114,8 @@ const WeatherPanel = () => {
         <strong className={weatherPanelStrongDayOrNightClass}>
           {temperature.toFixed()}&deg;C
         </strong>
-        <div className="otherParametersContainer">
-          <div className={weatherPanelElementDayOrNightClass}>
-            <p className="otherParametersContainer__element__description">
-              Wschód słońca
-              <span className="otherParametersContainer__element__description__value">
-                {timeSunRise}
-              </span>
-            </p>
-            <p className="otherParametersContainer__element__description">
-              Zachód słońca
-              <span className="otherParametersContainer__element__description__value">
-                {timeSunSet}
-              </span>
-            </p>
-          </div>
-          <div className={weatherPanelElementDayOrNightClass}>
-            <p className="otherParametersContainer__element__description">
-              Prędkość wiatru
-              <span className="otherParametersContainer__element__description__value">
-                {windSpeed}km/h
-              </span>
-            </p>
-            <p className="otherParametersContainer__element__description">
-              Odczuwalna
-              <span className="otherParametersContainer__element__description__value">
-                {temperatureFeels.toFixed()}&deg;C
-              </span>
-            </p>
-          </div>
-          <div className="otherParametersContainer__element">
-            <p className="otherParametersContainer__element__description">
-              Wilgotność
-              <span className="otherParametersContainer__element__description__value">
-                {humidity}%
-              </span>
-            </p>
-            <p className="otherParametersContainer__element__description">
-              Ciśnienie
-              <span className="otherParametersContainer__element__description__value">
-                {pressure}hPa
-              </span>
-            </p>
-          </div>
-        </div>
-        <button
-          onClick={handleCloseClick}
-          className="weatherPanelContainer__panel__button"
-        >
+        <OtherParameters getTimeToShow={getTimeToShow} />
+        <button onClick={handleCloseClick} className="exitButton">
           X
         </button>
       </div>
