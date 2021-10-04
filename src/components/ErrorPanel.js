@@ -20,7 +20,7 @@ const ErrorPanel = () => {
       case 404:
         return (
           <ErrorDescription
-            message="Coś źle wpisane! Nie znajduję takiego miasta :("
+            message="Coś źle wpisane! Nie znajduję takiego miejsca :("
             code={errorCode}
           />
         );
@@ -51,10 +51,7 @@ const ErrorPanel = () => {
     <div className={errorPanelDayOrNightClass}>
       <img src={errorImage} alt="Błąd" />
       {errorDescription}
-      <button
-        onClick={handleCloseClick}
-        className="errorPanelContainer__button"
-      >
+      <button onClick={handleCloseClick} className="exitButton">
         X
       </button>
     </div>
