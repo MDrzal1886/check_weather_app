@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
   const [dayOrNightStyles, setDayOrNightStyles] = useState(true);
 
   useEffect(() => {
-    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${city},&units=metric&APPID=${KeyAPPID}&lang=pl`;
+    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${KeyAPPID}&lang=pl`;
     if (city.length > 0) {
       fetch(APIurl)
         .then((response) => {
@@ -35,22 +35,23 @@ const AppProvider = ({ children }) => {
           }
         })
         .then((data) => {
-          return setWeather({
-            code: data.weather[0].icon,
-            description: data.weather[0].description,
-            humidity: data.main.humidity,
-            pressure: data.main.pressure,
-            sunRise: data.sys.sunrise,
-            sunSet: data.sys.sunset,
-            temperature: data.main.temp,
-            temperatureFeels: data.main.feels_like,
-            timezone: data.timezone,
-            windSpeed: data.wind.speed,
-          });
+          if (Boolean(data)) {
+            return setWeather({
+              code: data.weather[0].icon,
+              description: data.weather[0].description,
+              humidity: data.main.humidity,
+              pressure: data.main.pressure,
+              sunRise: data.sys.sunrise,
+              sunSet: data.sys.sunset,
+              temperature: data.main.temp,
+              temperatureFeels: data.main.feels_like,
+              timezone: data.timezone,
+              windSpeed: data.wind.speed,
+            });
+          } else return setError(true);
         })
         .catch(() => {
-          setError(true);
-          return;
+          return setError(true);
         });
     }
   }, [city]);

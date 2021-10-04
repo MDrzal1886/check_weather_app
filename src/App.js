@@ -11,10 +11,10 @@ import backgroundNight from "./img/backgroundNight.jpg";
 import "./sass/app.scss";
 
 function App() {
-  const { city, error, setDayOrNightStyles, dayOrNightStyles } =
+  const { city, error, setDayOrNightStyles, dayOrNightStyles, weather } =
     useContext(AppContext);
   const weatherPanelComponent =
-    Boolean(city) && !error ? <WeatherPanel /> : null;
+    Boolean(city) && !error && Boolean(weather.code) ? <WeatherPanel /> : null;
   const errorPanelComponent = error ? <ErrorPanel /> : null;
   const FormComponent = !Boolean(city) ? <Form /> : null;
   const houers = new Date().getHours();
