@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
 import ErrorDescription from "./ErrorDescription";
+import ExitButton from "./ExitButton";
 
 import "../sass/errorPanel.scss";
 
 import errorImage from "../img/error.svg";
 
 const ErrorPanel = () => {
-  const { errorCode, dayOrNightStyles, handleCloseClick } =
-    useContext(AppContext);
+  const { errorCode, dayOrNightStyles } = useContext(AppContext);
 
   const getErrorDescription = () => {
     switch (errorCode) {
@@ -51,9 +51,7 @@ const ErrorPanel = () => {
     <div className={errorPanelDayOrNightClass}>
       <img src={errorImage} alt="Błąd" />
       {errorDescription}
-      <button onClick={handleCloseClick} className="exitButton">
-        X
-      </button>
+      <ExitButton />
     </div>
   );
 };

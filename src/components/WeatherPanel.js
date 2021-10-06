@@ -2,6 +2,7 @@ import { useContext } from "react";
 
 import { AppContext } from "../AppContext";
 
+import ExitButton from "./ExitButton";
 import OtherParameters from "./OtherParameters";
 
 import "../sass/weatherPanel.scss";
@@ -19,8 +20,7 @@ import snowNight from "../video/snowNight.mp4";
 import thunderstorm from "../video/thunderstorm.mp4";
 
 const WeatherPanel = () => {
-  const { dayOrNightStyles, handleCloseClick, city, weather } =
-    useContext(AppContext);
+  const { dayOrNightStyles, city, weather } = useContext(AppContext);
 
   const { code, description, temperature, timezone } = weather;
 
@@ -94,15 +94,17 @@ const WeatherPanel = () => {
 
   return (
     <div className={weatherContainerDayOrNightClass}>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        src={videoSrc}
-        type="video/mp4"
-        className="weatherPanelContainer__video"
-      ></video>
+      <div className="weatherPanelContainer__videoContainer">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          src={videoSrc}
+          type="video/mp4"
+          className="weatherPanelContainer__videoContainer__video"
+        ></video>
+      </div>
       <div className="weatherPanelContainer__panel">
         <h1>{city.toUpperCase()}</h1>
         <p className="weatherPanelContainer__panel__timeAndDescription">
@@ -115,9 +117,7 @@ const WeatherPanel = () => {
           {temperature.toFixed()}&deg;C
         </strong>
         <OtherParameters getTimeToShow={getTimeToShow} />
-        <button onClick={handleCloseClick} className="exitButton">
-          X
-        </button>
+        <ExitButton />
       </div>
     </div>
   );
