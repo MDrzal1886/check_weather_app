@@ -20,25 +20,45 @@
   color: white;
   border: none;
   outline: none;
-  width: 9vw;
-  height: 9vw;
+  width: 40px;
+  height: 40px;
   position: absolute;
-  top: 2%;
-  left: 4%;
+  top: 2vw;
+  left: 2vw;
   border-radius: 50%;
-  @media (orientation: landscape) {
-    width: 4vw;
-    height: 4vw;
-    top: 4%;
-    left: 3%;
-    font-size: 10px;
+  text-align: center;
+  line-height: 40px;
+  @include media(small) {
+    font-size: 1.1rem;
+    line-height: 45px;
+    width: 45px;
+    height: 45px;
   }
   @include media(medium) {
-    font-size: 20px;
+    font-size: 1.2rem;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+  }
+  @include media(large) {
+    font-size: 1.3rem;
+    line-height: 55px;
+    width: 55px;
+    height: 55px;
   }
   @include media(xlarge) {
+    font-size: 1.4rem;
+    line-height: 60px;
+    width: 60px;
+    height: 60px;
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
+  }
+  @include media(xxlarge) {
+    font-size: 1.5rem;
+    line-height: 65px;
+    width: 65px;
+    height: 65px;
   }
 }

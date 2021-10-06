@@ -7,17 +7,41 @@
   align-items: center;
   p {
     text-align: center;
-    font-size: 20px;
-    padding: 0 10%;
+    font-size: 1.5rem;
+    padding: 0 10% 10%;
+    @include media(small) {
+      font-size: 2rem;
+    }
+    @include media(medium) {
+      font-size: 2.5rem;
+    }
     @include media(large) {
-      font-size: 40px;
+      font-size: 3rem;
+    }
+    @include media(xlarge) {
+      font-size: 3.5rem;
+    }
+    @include media(xxlarge) {
+      font-size: 4rem;
     }
   }
   span {
-    font-size: 100px;
+    font-size: 8rem;
     font-weight: bold;
+    @include media(small) {
+      font-size: 12rem;
+    }
+    @include media(medium) {
+      font-size: 16rem;
+    }
     @include media(large) {
-      font-size: 140px;
+      font-size: 20rem;
+    }
+    @include media(xlarge) {
+      font-size: 24rem;
+    }
+    @include media(xxlarge) {
+      font-size: 26rem;
     }
   }
 }

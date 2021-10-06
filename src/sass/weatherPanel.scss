@@ -7,29 +7,59 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 5%;
+  border-radius: 25px;
   width: 90%;
-  height: 95%;
+  min-height: 300px;
+  min-width: 300px;
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
   box-shadow: 0 0 5px 2px black;
   overflow: hidden;
   @media (orientation: landscape) {
     width: 80%;
-    height: 80%;
   }
   &--night {
     box-shadow: 0 0 5px 2px white;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
   }
-  &__video {
+  &__videoContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
     width: 100%;
     @media (orientation: landscape) {
-      position: absolute;
+      height: 150px;
+      @include media(small) {
+        height: 160px;
+      }
+      @include media(medium) {
+        height: 170px;
+        @media (max-height: 400px) {
+          height: 150px;
+        }
+      }
+      @include media(large) {
+        height: 190px;
+      }
+      @include media(xlarge) {
+        height: 250px;
+      }
+      @include media(xxlarge) {
+        height: 380px;
+      }
+    }
+    &__video {
+      position: relative;
       top: 0;
       left: 0;
-      width: 40%;
+      width: 100%;
+      @media (orientation: landscape) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
   &__panel {
@@ -40,76 +70,76 @@
     align-items: center;
     @media (orientation: landscape) {
       align-items: flex-end;
-      padding: 3% 4% 0 0;
+      justify-content: end;
+      padding: 1% 4% 0 0;
     }
     h1 {
       padding: 1% 0 0;
-      @media (orientation: landscape) {
-        font-size: 20px;
-      }
+      font-size: 2rem;
       @include media(small) {
-        font-size: 25px;
+        font-size: 2.5rem;
       }
       @include media(medium) {
-        font-size: 30px;
+        font-size: 3rem;
       }
       @include media(large) {
-        font-size: 40px;
+        font-size: 3.5rem;
       }
       @include media(xlarge) {
-        font-size: 45px;
+        font-size: 5rem;
       }
       @include media(xxlarge) {
-        font-size: 55px;
+        font-size: 7rem;
       }
     }
     &__timeAndDescription {
-      font-size: 16px;
+      font-size: 1.3rem;
       @media (orientation: landscape) {
         max-width: 45%;
         text-align: right;
       }
       @include media(small) {
-        font-size: 20px;
+        font-size: 1.6rem;
       }
       @include media(medium) {
-        font-size: 25px;
+        font-size: 1.9rem;
       }
       @include media(large) {
-        font-size: 30px;
+        font-size: 2.2rem;
       }
       @include media(xlarge) {
-        font-size: 35px;
+        font-size: 3rem;
       }
       @include media(xxlarge) {
-        font-size: 40px;
+        font-size: 3.5rem;
       }
     }
     &__timeAndDescription:last-of-type {
-      padding-bottom: 3%;
+      padding-bottom: 1%;
     }
     &__strong {
       border-top: 1px solid black;
-      font-size: 70px;
-      width: 90%;
+      font-size: 6rem;
       text-align: center;
+      width: 90%;
       @media (orientation: landscape) {
+        text-align: right;
         width: 45%;
       }
       @include media(small) {
-        font-size: 90px;
+        font-size: 8rem;
       }
       @include media(medium) {
-        font-size: 110px;
+        font-size: 10rem;
       }
       @include media(large) {
-        font-size: 140px;
+        font-size: 12rem;
       }
       @include media(xlarge) {
-        font-size: 170px;
+        font-size: 16rem;
       }
       @include media(xxlarge) {
-        font-size: 200px;
+        font-size: 20rem;
       }
       &--night {
         border-top: 1px solid white;
@@ -118,7 +148,7 @@
     .otherParametersContainer {
       display: flex;
       flex-grow: 1;
-      font-size: 14px;
+      font-size: 1rem;
       flex-direction: column;
       width: 90%;
       @media (orientation: landscape) {
@@ -127,20 +157,22 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 0 0 0.5% 2%;
-        font-size: 10px;
+        padding: 0 0 1% 2%;
       }
       @include media(small) {
-        font-size: 12px;
+        font-size: 1.2rem;
       }
       @include media(medium) {
-        font-size: 14px;
+        font-size: 1.5rem;
       }
       @include media(large) {
-        font-size: 16px;
+        font-size: 1.8rem;
       }
       @include media(xlarge) {
-        font-size: 18px;
+        font-size: 2.5rem;
+      }
+      @include media(xxlarge) {
+        font-size: 3.7rem;
       }
       &__element {
         display: flex;
