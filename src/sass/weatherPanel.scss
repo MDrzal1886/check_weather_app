@@ -71,10 +71,25 @@
     @media (orientation: landscape) {
       align-items: flex-end;
       justify-content: end;
-      padding: 1% 4% 0 0;
+      padding-right: 10px;
+      @include media(small) {
+        padding-right: 20px;
+      }
+      @include media(medium) {
+        padding-right: 30px;
+      }
+      @include media(large) {
+        padding-right: 40px;
+      }
+      @include media(xlarge) {
+        padding-right: 50px;
+      }
+      @include media(xxlarge) {
+        padding-right: 60px;
+      }
     }
     h1 {
-      padding: 1% 0 0;
+      padding-top: 10px;
       font-size: 2rem;
       @include media(small) {
         font-size: 2.5rem;
@@ -115,7 +130,7 @@
       }
     }
     &__timeAndDescription:last-of-type {
-      padding-bottom: 1%;
+      padding-bottom: 10px;
     }
     &__strong {
       border-top: 1px solid black;
@@ -157,27 +172,32 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 0 0 1% 2%;
+        padding: 0 0 10px 5px;
       }
       @include media(small) {
         font-size: 1.2rem;
+        padding: 0 0 20px 10px;
       }
       @include media(medium) {
         font-size: 1.5rem;
+        padding: 0 0 30px 15px;
       }
       @include media(large) {
         font-size: 1.8rem;
+        padding: 0 0 40px 20px;
       }
       @include media(xlarge) {
         font-size: 2.5rem;
+        padding: 0 0 50px 25px;
       }
       @include media(xxlarge) {
         font-size: 3.7rem;
+        padding: 0 0 60px 30px;
       }
       &__element {
         display: flex;
         justify-content: space-evenly;
-        padding: 2% 0;
+        padding: 5px 0;
         border-bottom: 1px solid black;
         &--night {
           border-bottom: 1px solid white;
@@ -187,7 +207,6 @@
           flex-direction: column;
           text-align: center;
           &__value {
-            padding-top: 2%;
             font-weight: bold;
           }
         }

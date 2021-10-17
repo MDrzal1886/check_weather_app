@@ -59,7 +59,7 @@
     &__input {
       width: 80%;
       font-size: 1.5rem;
-      padding: 3% 6%;
+      padding: 15px 45px;
       background-color: transparent;
       border: 1px solid black;
       outline: none;
@@ -94,7 +94,7 @@
       width: 80%;
       font-size: 1.5rem;
       font-weight: bold;
-      padding: 3% 6%;
+      padding: 15px 45px;
       border: 1px solid black;
       box-shadow: 0 0 5px 2px black;
       text-transform: uppercase;
@@ -118,7 +118,6 @@
         &:hover {
           transform: scale(1.05);
         }
-        padding: 3% 6%;
       }
       @include media(xxlarge) {
         font-size: 4rem;

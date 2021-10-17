@@ -5,9 +5,6 @@ import ErrorPanel from "./components/ErrorPanel";
 import Form from "./components/Form";
 import WeatherPanel from "./components/WeatherPanel";
 
-import backgroundDay from "./img/backgroundDay.jpg";
-import backgroundNight from "./img/backgroundNight.jpg";
-
 import "./sass/app.scss";
 
 function App() {
@@ -31,14 +28,12 @@ function App() {
     }
   }, [setDayOrNightStyles, dayOrNightStyles, houers]);
 
-  const styleObject = {
-    backgroundImage: `url(${
-      dayOrNightStyles ? backgroundDay : backgroundNight
-    })`,
-  };
+  const addDayOrNightClass = dayOrNightStyles
+    ? "app--backgroundDay"
+    : "app--backgroundNight";
 
   return (
-    <div className="app" style={styleObject}>
+    <div className={`app ${addDayOrNightClass}`}>
       {FormComponent}
       {weatherPanelComponent}
       {errorPanelComponent}

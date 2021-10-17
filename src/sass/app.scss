@@ -3,13 +3,18 @@
 .app {
   width: 100vw;
   height: 100vh;
-  background-image: url("../img/backgroundDay.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
   position: relative;
   top: 0;
   left: 0;
+  &--backgroundDay {
+    background-image: url("../img/backgroundDay.jpg");
+  }
+  &--backgroundNight {
+    background-image: url("../img/backgroundNight.jpg");
+  }
 }
 
 .exitButton {
@@ -23,32 +28,27 @@
   width: 40px;
   height: 40px;
   position: absolute;
-  top: 2vw;
-  left: 2vw;
+  top: 10px;
+  left: 10px;
   border-radius: 50%;
   text-align: center;
-  line-height: 40px;
   @include media(small) {
     font-size: 1.1rem;
-    line-height: 45px;
     width: 45px;
     height: 45px;
   }
   @include media(medium) {
     font-size: 1.2rem;
-    line-height: 50px;
     width: 50px;
     height: 50px;
   }
   @include media(large) {
     font-size: 1.3rem;
-    line-height: 55px;
     width: 55px;
     height: 55px;
   }
   @include media(xlarge) {
     font-size: 1.4rem;
-    line-height: 60px;
     width: 60px;
     height: 60px;
     &:hover {
@@ -57,7 +57,6 @@
   }
   @include media(xxlarge) {
     font-size: 1.5rem;
-    line-height: 65px;
     width: 65px;
     height: 65px;
   }
