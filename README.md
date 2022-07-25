@@ -1,5 +1,7 @@
 # check_weather_app
 
+## link to GitHub Pages: https://mdrzal1886.github.io/check_weather_app/
+
 This app is create to check weather in place which we enter.
 
 ## This app is build by create-react-app
